@@ -875,9 +875,17 @@ render_raw_html(
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }}
     .mvp-stepper-inner {{
-        max-width: 736px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 0.75rem 1rem 0.6rem 1rem;
+    }}
+    /* Streamlit's default centered layout caps content at ~730px, which
+    leaves large blank gutters either side when the app is embedded in a
+    wide iframe (as on the iso4lab.com site). Widen it to 900px so the
+    form fills the embedded space better, while still staying centered
+    and readable rather than stretching edge-to-edge. */
+    div[data-testid="stMainBlockContainer"], .block-container {{
+        max-width: 900px !important;
     }}
     .mvp-stepper-track {{
         position: relative;
